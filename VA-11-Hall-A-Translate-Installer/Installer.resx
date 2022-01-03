@@ -1431,37 +1431,37 @@
   <data name="&gt;&gt;btn_install.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="button2.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btn_uninstall.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="button2.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btn_uninstall.Font" type="System.Drawing.Font, System.Drawing">
     <value>CyberpunkWaifus, 18pt</value>
   </data>
-  <data name="button2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btn_uninstall.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btn_uninstall.Location" type="System.Drawing.Point, System.Drawing">
     <value>265, 361</value>
   </data>
-  <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btn_uninstall.Size" type="System.Drawing.Size, System.Drawing">
     <value>154, 59</value>
   </data>
-  <data name="button2.TabIndex" type="System.Int32, mscorlib">
+  <data name="btn_uninstall.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="button2.Text" xml:space="preserve">
+  <data name="btn_uninstall.Text" xml:space="preserve">
     <value>Desinstalar</value>
   </data>
-  <data name="&gt;&gt;button2.Name" xml:space="preserve">
-    <value>button2</value>
+  <data name="&gt;&gt;btn_uninstall.Name" xml:space="preserve">
+    <value>btn_uninstall</value>
   </data>
-  <data name="&gt;&gt;button2.Type" xml:space="preserve">
+  <data name="&gt;&gt;btn_uninstall.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btn_uninstall.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btn_uninstall.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="lb_status_text.Font" type="System.Drawing.Font, System.Drawing">

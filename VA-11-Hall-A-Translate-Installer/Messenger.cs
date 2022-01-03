@@ -24,5 +24,10 @@ namespace VA_11_Hall_A_Translate_Installer
 
             this.collection.Add(message);
         }
+
+        public void Clear()
+        {
+            this.collection.Clear();
+        }
     }
 }
