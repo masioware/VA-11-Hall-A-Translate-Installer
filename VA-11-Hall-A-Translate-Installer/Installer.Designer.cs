@@ -32,7 +32,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label_title = new System.Windows.Forms.Label();
             this.btn_install = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_uninstall = new System.Windows.Forms.Button();
             this.lb_status_text = new System.Windows.Forms.ListBox();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -59,13 +59,14 @@
             this.btn_install.UseVisualStyleBackColor = false;
             this.btn_install.Click += new System.EventHandler(this.btn_install_Click);
             // 
-            // button2
+            // btn_uninstall
             // 
-            this.button2.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn_uninstall.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.btn_uninstall, "btn_uninstall");
+            this.btn_uninstall.ForeColor = System.Drawing.Color.White;
+            this.btn_uninstall.Name = "btn_uninstall";
+            this.btn_uninstall.UseVisualStyleBackColor = false;
+            this.btn_uninstall.Click += new System.EventHandler(this.btn_uninstall_Click);
             // 
             // lb_status_text
             // 
@@ -82,7 +83,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.Controls.Add(this.lb_status_text);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btn_uninstall);
             this.Controls.Add(this.btn_install);
             this.Controls.Add(this.label_title);
             this.Controls.Add(this.pictureBox1);
@@ -99,7 +100,7 @@
         private PictureBox pictureBox1;
         private Label label_title;
         private Button btn_install;
-        private Button button2;
+        private Button btn_uninstall;
         private ListBox lb_status_text;
         private FolderBrowserDialog folderBrowserDialog;
     }
