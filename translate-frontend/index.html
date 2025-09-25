@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Página da tradução de fã do jogo VA-11 Hall-A: Cyberpunk Bartender Action." />
+  <title>VA‑11 Hall‑A — Tradução PT-BR (Fanmade)</title>
+  <style>
+    /* ================================
+       Tema: Cyberpunk / Neon / CRT
+       Somente HTML + CSS, sem JS
+       ================================ */
+    :root{
+      --bg:#0c0e12;            /* fundo profundo */
+      --surface:#141823;        /* cartão/painel */
+      --text:#e6e8ef;          /* texto principal */
+      --muted:#aeb2c3;         /* texto secundário */
+      --neon-pink:#ff3fd1;     /* cor destaque 1 */
+      --neon-cyan:#27f0ff;     /* cor destaque 2 */
+      --neon-purple:#8b5cf6;   /* destaque 3 */
+      --accent:#00ff9c;        /* sucesso */
+      --danger:#ff4365;        /* alerta */
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.45);
+      --scanline:linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px);
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root{ --bg:#f5f7ff; --surface:#ffffff; --text:#101320; --muted:#4b5160; }
+    }
+
+    *{ box-sizing:border-box }
+    html, body{ height:100% }
+    body{
+      margin:0;
+      font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(39,240,255,.08), transparent 60%),
+        radial-gradient(800px 400px at 110% 10%, rgba(255,63,209,.07), transparent 50%),
+        var(--bg);
+      background-attachment: fixed;
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+
+    /* Efeito sutil CRT/scanlines (opcional, pode remover se não curtir) */
+    .crt::before{
+      content:""; position:fixed; inset:0; pointer-events:none; mix-blend-mode:soft-light;
+      background-image: var(--scanline);
+      background-size: 100% 2px;
+      opacity:.4;
+    }
+
+    a{ color:var(--neon-cyan); text-decoration:none }
+    a:hover{ text-decoration:underline }
+
+    .container{ width:min(1100px, 92vw); margin-inline:auto; padding: 24px 0 80px }
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:10; backdrop-filter: blur(10px);
+      background: linear-gradient( to right, rgba(12,14,18,.65), rgba(20,24,35,.65) );
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 16px }
+    .brand{ display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.3px }
+    .logo{
+      width:34px; height:34px; border-radius:10px; border:1px solid rgba(255,255,255,.25);
+      background: conic-gradient(from 180deg at 50% 50%, var(--neon-pink), var(--neon-cyan), var(--neon-purple), var(--neon-pink));
+      box-shadow:0 0 24px rgba(255,63,209,.35), inset 0 0 16px rgba(39,240,255,.2);
+    }
+    .nav a.btn{ padding:.52rem .9rem; border-radius:999px; border:1px solid rgba(255,255,255,.18); }
+    .nav a.btn.primary{ background: linear-gradient(90deg, rgba(255,63,209,.2), rgba(39,240,255,.2)); }
+
+    /* Hero */
+    .hero{ display:grid; grid-template-columns: 1.1fr .9fr; gap:28px; align-items:center; padding:48px 16px 8px }
+    .hero h1{ font-size: clamp(1.8rem, 3.8vw, 3.2rem); line-height:1.1; margin:0 0 12px }
+    .hero p{ color:var(--muted); margin:0 0 18px }
+
+    .glow{
+      text-shadow: 0 0 8px rgba(39,240,255,.4), 0 0 18px rgba(255,63,209,.35);
+      background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
+      -webkit-background-clip: text; background-clip:text; color: transparent;
+    }
+
+    .cta{ display:flex; flex-wrap:wrap; gap:10px; margin-top:12px }
+    .chip{ display:inline-flex; align-items:center; gap:8px; padding:.6rem .9rem; border-radius:999px; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.04) }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .panel{ padding:18px }
+
+    .cover{
+      aspect-ratio: 16/9; width:100%; border-radius: calc(var(--radius) - 6px);
+      background:
+        radial-gradient(450px 200px at 10% 0%, rgba(39,240,255,.25), transparent 60%),
+        url('cover-placeholder.jpg') center/cover no-repeat, #090b10;
+      border:1px solid rgba(255,255,255,.18);
+    }
+    .badges{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px }
+    .badge{ padding:.35rem .6rem; border-radius:999px; font-size:.82rem; border:1px solid rgba(255,255,255,.18); color:var(--muted) }
+
+    /* Seções */
+    section{ padding: 32px 16px }
+    h2.section-title{ font-size: clamp(1.2rem, 2.2vw, 1.6rem); margin:0 0 14px }
+    .grid{ display:grid; gap:14px }
+
+    /* Download */
+    .download-grid{ grid-template-columns: repeat(auto-fit, minmax(260px,1fr)) }
+    .dl{ display:flex; flex-direction:column; gap:12px }
+    .dl .meta{ color:var(--muted); font-size:.9rem }
+    .dl .actions{ display:flex; gap:10px; flex-wrap:wrap }
+    .btn{
+      display:inline-block; padding:.72rem 1rem; border-radius:12px; border:1px solid rgba(255,255,255,.18);
+      background: linear-gradient(90deg, rgba(39,240,255,.12), rgba(255,63,209,.12)); color:var(--text);
+      font-weight:600; letter-spacing:.2px
+    }
+    .btn:hover{ filter:brightness(1.08) }
+    .btn.ghost{ background: transparent }
+
+    /* Changelog */
+    .changelog{ grid-template-columns: 1fr } 
+    .log-item{ display:flex; gap:12px; align-items:flex-start }
+    .dot{ width:12px; height:12px; border-radius:50%; background:var(--neon-pink); box-shadow:0 0 12px rgba(255,63,209,.6) }
+    .log-body small{ color:var(--muted) }
+
+    /* Galeria */
+    .gallery{ grid-template-columns: repeat(auto-fit, minmax(220px,1fr)) }
+    .shot{ aspect-ratio: 16/9; border-radius:14px; border:1px solid rgba(255,255,255,.18); background:#0a0d12 url('screenshot-1.jpg') center/cover no-repeat }
+
+    /* FAQ */
+    details{ background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:12px }
+    summary{ cursor:pointer; font-weight:600 }
+    details p{ color:var(--muted); margin:.6rem 0 0 }
+
+    /* Footer */
+    footer{ padding:28px 16px; color:var(--muted); border-top:1px solid rgba(255,255,255,.12) }
+
+    /* Responsivo */
+    @media (max-width: 860px){
+      .hero{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="crt">
+  <header>
+    <nav class="nav container" aria-label="Principal">
+      <div class="brand"><span class="logo" aria-hidden="true"></span><span>VA‑11 Hall‑A — PT‑BR</span></div>
+      <div class="links">
+        <a class="btn ghost" href="#downloads">Downloads</a>
+        <a class="btn ghost" href="#changelog">Changelog</a>
+        <a class="btn primary" href="#como-instalar">Como instalar</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <h1 class="glow">VA‑11 Hall‑A: Cyberpunk Bartender Action PT-BR</h1>
+        <p>
+          Projeto de tradução de fãs (não oficial) para levar o clima neon‑noir e o humor ácido do bar <strong>Valhalla</strong> ao português do Brasil.
+          Interface, diálogos e elementos in‑game cuidadosamente localizados.
+        </p>
+        <div class="cta">
+          <a class="btn" href="#downloads" aria-label="Ir para área de downloads">Baixar agora</a>
+          <a class="btn ghost" href="#faq">FAQ</a>
+          <span class="chip" aria-label="Compatível com versões PC/Steam/GOG">Compatível: PC / Steam / GOG</span>
+        </div>
+        <div class="badges" aria-label="Status do projeto">
+          <span class="badge">Status: <strong>Done</strong></span>
+          <span class="badge">Cobertura: ~100% diálogos</span>
+          <span class="badge">Última atualização: 2025‑09‑24</span>
+        </div>
+      </div>
+      <div class="card panel" aria-label="Capa/arte do projeto">
+        <img src="./assets/banner.avif" class="cover" role="img" aria-label="Arte estilizada com gradientes neon"></img>
+      </div>
+    </section>
+
+    <!-- Downloads -->
+    <section id="downloads" aria-labelledby="downloads-title">
+      <h2 id="downloads-title" class="section-title">Downloads</h2>
+      <div class="grid download-grid">
+        <article class="card panel dl">
+          <header>
+            <h3>Patch PT‑BR (ZIP)</h3>
+            <p class="meta">Versão 0.9.2 • 32 MB • Assinatura SHA256 disponível</p>
+          </header>
+          <div class="actions">
+            <a class="btn" href="#">Baixar .zip</a>
+            <a class="btn ghost" href="#checksums">Checksums</a>
+            <a class="btn ghost" href="#como-instalar">Instruções</a>
+          </div>
+        </article>
+        <article class="card panel dl">
+          <header>
+            <h3>Versões anteriores</h3>
+            <p class="meta">Histórico completo em releases</p>
+          </header>
+          <div class="actions">
+            <a class="btn" href="#">Ver releases</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Como instalar -->
+    <section id="como-instalar" aria-labelledby="instalar-title">
+      <h2 id="instalar-title" class="section-title">Como instalar</h2>
+      <div class="card panel">
+        <ol>
+          <li>Faça backup da sua pasta do jogo.</li>
+          <li>Baixe o <strong>Patch PT‑BR</strong> e extraia o conteúdo na pasta do VA‑11 Hall‑A.</li>
+          <li>Se solicitado, permita substituir arquivos.</li>
+          <li>Inicie o jogo e, no menu, confira se o idioma <em>Português (Brasil)</em> aparece nas opções.</li>
+        </ol>
+        <p class="muted">Dica: em algumas versões (GOG), o caminho de instalação difere. Consulte o readme do release correspondente.</p>
+      </div>
+    </section>
+
+    <!-- FAQ / Legal -->
+    <section id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="section-title">FAQ</h2>
+      <div class="grid" style="grid-template-columns:1fr">
+        <details>
+          <summary>Essa tradução é oficial?</summary>
+          <p>Não. É um projeto de fãs, sem fins lucrativos, e não associado aos criadores ou distribuidores do jogo. Suporte oficial não é garantido.</p>
+        </details>
+        <details>
+          <summary>Quais versões do jogo são compatíveis?</summary>
+          <p>Focamos em builds de PC (Steam e GOG). Outras plataformas não são suportadas nesta página.</p>
+        </details>
+        <details>
+          <summary>Posso reportar erros de tradução?</summary>
+          <p>Sim! Abra um issue no repositório ou envie feedback pelo e‑mail indicado no rodapé. Inclua screenshot e contexto do diálogo.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Checksums / Licenças (âncoras) -->
+    <section id="checksums" aria-labelledby="checksums-title">
+      <h2 id="checksums-title" class="section-title">Checksums</h2>
+      <div class="card panel">
+        <pre style="white-space:pre-wrap; margin:0">VA11-PTBR-0.9.2.zip  sha256  3f9a…abcd
+assets-typo-pack.zip sha256  a1b2…c3d4</pre>
+      </div>
+    </section>
+
+    <section id="licencas" aria-labelledby="licencas-title">
+      <h2 id="licencas-title" class="section-title">Licenças</h2>
+      <div class="card panel">
+        <p>Conteúdos originais pertencem aos seus respectivos detentores de direitos. Os textos traduzidos são distribuídos nos termos da licença que você escolher (ex.: CC BY‑NC‑SA 4.0). Atualize esta seção conforme necessário.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <p><strong>VA‑11 Hall‑A — Tradução PT‑BR (fanmade)</strong><br />Projeto sem fins lucrativos. Para contato: <a href="mailto:marcioedumartinez@gmail.com">marcioedumartinez@gmail.com</a> • X: <a href="https://x.com/masioware">@masioware</a></p>
+  </footer>
+</body>
+</html>
